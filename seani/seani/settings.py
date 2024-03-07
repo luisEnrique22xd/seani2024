@@ -39,8 +39,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'library.apps.LibraryConfig', 
+    'home.apps.HomeConfig',
     'career.apps.CareerConfig', 
     'exam.apps.ExamConfig', 
+    #Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,7 +66,7 @@ ROOT_URLCONF = 'seani.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,6 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_REDIRECT_URL = '/exam'
+LOGOUT_REDIRECT_URL = '/'
 
 cloudinary.config( 
   cloud_name = str(os.environ.get('CLOUD_NAME')), 
