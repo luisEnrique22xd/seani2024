@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ question.module }}</h1>
+{% if question.question_text %}
+<h2>{{ question.question_text }}</h2>
+{% endif %}
+{% if question.question_image %}
+<img src="{{ question.question_image.url }}" alt="" width="400px">
+{% endif %}
+
+<p>{{ question.question_img.url }}</p>
+<p>{{ question.answer1 }}</p>
+<p>{{ question.answer2 }}</p>
+<p>{{ question.answer3 }}</p>
+<p>{{ question.answer4 }}</p>
+<p>{{ question.correct }}</p>
+
+
+{% endblock %}

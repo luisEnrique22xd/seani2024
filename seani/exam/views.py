@@ -10,6 +10,15 @@ def home(request):
     user = request.user
     return render(request, 'exam/home.html', {"user":user})
 
+def question(request, m_id, q_id=1):
+    user = request.user
+    exam = user.exam
+    questions = exam.questions.filter(module_id = m_id)
+    question = questions[q_id-1]
+    return render(request, 
+                  'exam/question.html',
+                  {"question":question})
+
 def create(request):
     if request.method == "GET": 
         form = CandidateForm
